@@ -12,11 +12,11 @@ in [*21st International Workshop on Advanced Computing and Analysis Techniques i
 
 > **Authors:**
 >
-> LHCb Collaboration, L. Anderlini [1], M. Barbetti [1,2]
+> M. Barbetti [1,2], L. Anderlini [2]
 
 > **Affiliations:**
-> 1. Istituto Nazionale di Fisica Nucleare, Sezione di Firenze, via G. Sansonse 1, Sesto Fiorentino (FI), Italy
-> 2. Department of Information Engineering, University of Florence, via Santa Marta, 3, Firenze, Italy
+> 1. Department of Information Engineering, University of Florence, via Santa Marta, 3, Firenze, Italy
+> 2. Istituto Nazionale di Fisica Nucleare, Sezione di Firenze, via G. Sansonse 1, Sesto Fiorentino (FI), Italy
 
 
 ## Abstract
