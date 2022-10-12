@@ -1,7 +1,4 @@
-all: docs/tutorial/poster.html docs/koika/poster.html docs/poster.css
-
-docs/poster.css: poster.less
-	lessc --strict-units=on $< $@
+all: docs/tutorial/poster.html docs/hopaas/poster.html docs/poster.css
 
 docs/%/:
 	mkdir -p $@
