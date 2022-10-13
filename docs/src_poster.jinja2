@@ -4,8 +4,9 @@
 
 {% set poster_title = "Hyperparameter Optimization as a Service on INFN Cloud" %}
 {% set poster_subtitle = "" %}
-{% set venue = "ACAT 2022" %}
-{% set webpage_title = poster_title + " (" + venue + " poster)" %}
+{% set venue_long = "21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research" %}
+{% set venue_short = "ACAT 2022" %}
+{% set webpage_title = poster_title + " (" + venue_short + " poster)" %}
 {% set project_url = "http://hopaas.cloud.infn.it" %}
 {% set venue_url = "https://indico.cern.ch/event/1106990" %}
 
@@ -24,8 +25,8 @@
 {% endblock %}
 
 {% block affiliations %}
-  <sup>b</sup><a property="sourceOrganization">University of Florence</a>,
-  <sup>a</sup><a property="sourceOrganization">INFN-Firenze</a>
+  <sup>a</sup><a property="sourceOrganization">University of Florence</a>,
+  <sup>b</sup><a property="sourceOrganization">INFN-Firenze</a>
 {% endblock %}
 
 {# Project logos shown on the left side #}
@@ -41,7 +42,7 @@
 {### Footer ##}
 
 {% block project_link %}
-  <a href="{{ venue_url }}">ACAT 2022</a>
+  <a href="{{ project_url }}">{{ project_url }}</a>
 {% endblock %}
 
 {% block contact_information %}

@@ -1,16 +1,13 @@
-all: docs/tutorial/poster.html docs/hopaas/poster.html docs/poster.css
+all: docs/poster.html docs/poster.css
 
-docs/%/:
-	mkdir -p $@
+docs/src_poster.css: src_poster.less
+	lessc --strict-units=on $< $@
 
-docs/%/poster.css: docs/poster.css | docs/%/
-	ln -f -s ../poster.css $@
-
-docs/%/poster.html: docs/%.jinja2 poster.jinja2 docs/%/poster.css | docs/%/
+docs/poster.html: docs/src_poster.jinja2 poster.jinja2 docs/poster.css
 	./render.py $< $@
 
 clean:
 	rm docs/poster.css
-	rm -fr docs/*/poster.{html,css}
+	rm -fr docs/poster.html
 
 .SECONDARY:
