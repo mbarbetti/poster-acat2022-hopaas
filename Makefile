@@ -1,6 +1,6 @@
 all: docs/poster.html docs/poster.css
 
-docs/src_poster.css: src_poster.less
+docs/poster.css: src_poster.less
 	lessc --strict-units=on $< $@
 
 docs/poster.html: docs/src_poster.jinja2 poster.jinja2 docs/poster.css
