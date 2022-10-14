@@ -48,6 +48,18 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 @tango-aluminum-5: #555753;
 @tango-aluminum-6: #2e3436;
 
+@my-midnight-l: #002855;
+@my-midnight-m: #001845;
+@my-midnight-d: #001233;
+
+@my-infn-color-1: #172d4e;
+@my-infn-color-2: #0010fb;
+@my-infn-color-3: #12c8f3;
+
+@my-acat-color-1: #b56c37;
+@my-acat-color-2: #b34810;
+@my-acat-color-3: #c89e6c;
+
 //////////////////////
 // Global variables //
 //////////////////////
@@ -68,10 +80,13 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 @grid-gap: 1rem;
 
-@color-title: @tango-orange-l;
-@color-accent: @tango-orange-m;
-@color-bg-light: @tango-aluminum-1;
-@color-bg-dark: @tango-aluminum-6;
+@color-head-bkg: #e7ecef;
+@color-head-title: black;
+@color-block-title: white;
+@color-block-title-bkg: #8b8c89;
+@color-block-bkg: white;
+@color-accent: #6096ba;
+@color-bkg: #274c77;
 
 ///////////////////
 // Poster layout //
@@ -124,22 +139,21 @@ b {
         flex-direction: column;
         flex-wrap: wrap;
         overflow: auto;
-        padding: @grid-gap / 2;
+        padding: calc(@grid-gap / 2);
 
         // This phantom element gives a bit of breathing room when scrolling
         &::after {
             content: " ";
             display: block;
             flex-basis: 100%;
-            width: @grid-gap / 2;
+            width: calc(@grid-gap / 2);
         }
 
         > * {
             flex-grow: 1;
-            margin: @grid-gap / 2;
+            margin: calc(@grid-gap / 2);
             max-width: @column-max-width;
             min-width: @column-min-width;
-            width: 100% / @columns - 1%;
             width: calc(100% / @columns - @grid-gap);
         }
     }
@@ -170,6 +184,7 @@ b {
 html, body {
     height: 100%;
     width: 100%;
+    background: @color-bkg;
 }
 
 body {
@@ -178,8 +193,8 @@ body {
 
     > header, > footer {
         align-items: center;
-        background: black;
-        color: white;
+        background: @color-head-bkg;
+        color: @color-head-title;
         display: grid;
         grid-gap: @mid-space;
         padding: @mid-space;
@@ -260,7 +275,7 @@ main {
 }
 
 article {
-    background: @color-bg-light;
+    background: @color-block-bkg;
     display: flex;
     flex-direction: column;
     hyphens: auto;
@@ -281,8 +296,8 @@ article {
     }
 
     > header {
-        background: @color-bg-dark;
-        color: @color-title;
+        background: @color-block-title-bkg;
+        color: @color-block-title;
         margin: 0 -@mid-space auto -@mid-space;
         padding: @thin-space @mid-space;
 

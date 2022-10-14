@@ -44,7 +44,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
           <h2 property="alternativeHeadline">{{ poster_subtitle }}</h2>
         {% endif %}
         {% if venue_long %}
-          <h3>in {{ venue_long }}</h3>
+          <p>in <strong><em>{{ venue_long }}</em></strong> ({{ venue_short }})</p>
         {% endif %}
         <address>
           {% block authors %}
@@ -90,7 +90,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
       {# Feel free to remove the block below, but keep the comment in <head> #}
       {% block credits %}
         <span class="credits">
-          Based on an <a href="https://github.com/cpitclaudel/academic-poster-template">open poster template</a>.
+          based on <a href="https://github.com/cpitclaudel/academic-poster-template"><span class="monospace">academic-poster-template</span></a>
         </span>
       {% endblock %}
     </footer>

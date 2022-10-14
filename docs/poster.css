@@ -49,20 +49,19 @@ b {
     flex-direction: column;
     flex-wrap: wrap;
     overflow: auto;
-    padding: 0.5rem;
+    padding: calc(1rem / 2);
   }
   main::after {
     content: " ";
     display: block;
     flex-basis: 100%;
-    width: 0.5rem;
+    width: calc(1rem / 2);
   }
   main > * {
     flex-grow: 1;
-    margin: 0.5rem;
+    margin: calc(1rem / 2);
     max-width: 30rem;
     min-width: 22.5rem;
-    width: 24%;
     width: calc(100% / 4 - 1rem);
   }
 }
@@ -87,6 +86,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background: #274c77;
 }
 body {
   font-family: 'Fira Sans Condensed', 'Fira Sans', sans-serif;
@@ -95,8 +95,8 @@ body {
 body > header,
 body > footer {
   align-items: center;
-  background: black;
-  color: white;
+  background: #e7ecef;
+  color: black;
   display: grid;
   grid-gap: 0.5rem;
   padding: 0.5rem;
@@ -161,7 +161,7 @@ main figure figcaption {
   margin-top: 0.5rem;
 }
 article {
-  background: #eeeeec;
+  background: white;
   display: flex;
   flex-direction: column;
   hyphens: auto;
@@ -201,8 +201,8 @@ article > .MathJax_MathML {
   margin: 0.5rem 0 auto 0 !important;
 }
 article > header {
-  background: #2e3436;
-  color: #fcaf3e;
+  background: #8b8c89;
+  color: white;
   margin: 0 -0.5rem auto -0.5rem;
   padding: 0.25rem 0.5rem;
 }
@@ -246,7 +246,7 @@ article ol > li::before {
   width: 1em;
 }
 article ul > li::before {
-  background: #f57900;
+  background: #6096ba;
   border-radius: 100%;
   content: " ";
   height: 0.35em;
@@ -269,7 +269,7 @@ article ul.inline li::before {
   display: none;
 }
 .boxed {
-  border: thin solid #f57900;
+  border: thin solid #6096ba;
   padding: 0.25rem;
 }
 .center {
