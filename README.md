@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/indico-event-b34810?style=flat&logoColor=white)](https://indico.cern.ch/event/1106990/)
+[![](https://img.shields.io/badge/indico-event-c89e6c?style=flat&logoColor=white)](https://indico.cern.ch/event/1106990/)
 [![](https://img.shields.io/badge/indico-contribution-087cfc?style=flat&logoColor=white)](https://indico.cern.ch/event/1106990/contributions/4991351/)
 [![](https://img.shields.io/badge/HTML-poster-E34F26?style=flat&logo=HTML5&logoColor=white)](https://mbarbetti.github.io/poster-acat2022-hopaas/poster.html)
 <!--
