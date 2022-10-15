@@ -7,30 +7,30 @@
 {% set venue_long = "21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research" %}
 {% set venue_short = "ACAT 2022" %}
 {% set webpage_title = poster_title + " (" + venue_short + " poster)" %}
-{% set project_url = "http://hopaas.cloud.infn.it" %}
+{% set project_url = "https://hopaas.cloud.infn.it" %}
 {% set venue_url = "https://indico.cern.ch/event/1106990" %}
 {% set contact = "Matteo.Barbetti@fi.infn.it" %}
 
-{% set pub_datetime_iso = "2022-10-23" %}
-{% set pub_date = "October 23, 2022" %}
+{% set pub_datetime_iso = "2022-10-24" %}
+{% set pub_date = "October 24, 2022" %}
 
 {% block custom_head %}
   <style type="text/css">
-    html { font-size: 1.05rem }
+    html { font-size: 1rem }
   </style>
 {% endblock %}
 
 {% block authors %}
   <span class="medium">
-    <a property="author"><strong>Matteo Barbetti</strong><sup>a,b</sup></a> and
-    <a property="author">Lucio Anderlini<sup>b</sup></a>
+    <a property="author"><strong>M. Barbetti</strong><sup>a,b</sup></a> and
+    <a property="author">L. Anderlini<sup>b</sup></a>
   </span>
 {% endblock %}
 
 {% block affiliations %}
   <span class="normal">
-    <sup>a</sup><a property="sourceOrganization">University of Florence - DINFO</a>,
-    <sup>b</sup><a property="sourceOrganization">Istituto Nazionale di Fisica Nucleare - Sezione di Firenze</a>
+    <sup>a</sup><a property="sourceOrganization">University of Florence</a>,
+    <sup>b</sup><a property="sourceOrganization">INFN Firenze</a>
   </span>
 {% endblock %}
 
@@ -47,39 +47,77 @@
 
 {### Footer ###}
 
+{# Project link shown on the left side #}
 {% block project_link %}
   <a href="{{ project_url }}">{{ project_url }}</a>
 {% endblock %}
 
-{% block contact_information %}
-  <a href="mailto:{{ contact }}">{{ contact }}</a>
+{# Contact information shown on the middle side #}
+{% block contact_info %}
+  contact: <a class="monospace">{{ contact }}</a>
+{% endblock %}
+
+{# General information shown on the right side #}
+{% block general_info %}
+  October 2022, Bari (Italy)
 {% endblock %}
 
 {### Contents ###}
 
 {% block contents %}
+  {# 1. Motivation #}
   <article>
     <header><h3>1. Motivation</h3></header>
     <p><em>work in progress...</em></p>
   </article>
 
+  {# 2. Block #}
   <article>
     <header><h3>2. Block</h3></header>
-    <p><em>work in progress...</em></p>
+    <figure>
+      <img style="width: 100%" src="img/hopaas_sketch_1.png" alt="Hopaas client-server system">
+      <figcaption>
+        <small>
+          <em>work in progress...</em>
+        </small>
+      </figcaption>
+    </figure>
   </article>
 
+  {# 3. Block #}
   <article>
     <header><h3>3. Block</h3></header>
+    <figure>
+      <img style="width: 100%" src="img/hopaas_sketch_2.png" alt="Hopaas multi-nodes communication">
+      <figcaption>
+        <small>
+          <em>work in progress...</em>
+        </small>
+      </figcaption>
+    </figure>
+  </article>
+
+  {# 4. Block #}
+  <article>
+    <header><h3>4. Block</h3></header>
     <p><em>work in progress...</em></p>
   </article>
 
+  {# n. Conclusions #}
   <article>
     <header><h3>n. Conclusions</h3></header>
     <p><em>work in progress...</em></p>
   </article>
 
+  {# References #}
   <article>
     <header><h3>References</h3></header>
-    <p><em>work in progress...</em></p>
+    <small>
+      <ol>
+        <li>D. Spiga <em>et al.</em>, <em>Dynamic integration of distributed, Cloud-based HPC and HTC resources using JSON Web Tokens and the INDIGO IAM Service</em>, <a href="https://doi.org/10.1051/epjconf/202024507020">EPJ Web Conf <strong>245</strong> (2020) 07020</a></li>
+        <li>T. Akiba <em>et al.</em>, <em>Optuna: A Next-generation Hyperparameter Optimization Framework</em>, <a href="https://arxiv.org/abs/1907.10902">arXiv:1907.10902</a></li>
+        <li>M. Mariotti, D. Spiga and T. Boccali, <em>A possible solution for HEP processing on network secluded Computing Nodes</em>, <a href="https://doi.org/10.22323/1.378.0002">PoS <strong>ISGC2021</strong> (2021) 002</a></li>
+      </ol>
+    </small>
   </article>
 {% endblock %}
