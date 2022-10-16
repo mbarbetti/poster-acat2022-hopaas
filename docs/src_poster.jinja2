@@ -71,10 +71,23 @@
     <p><em>work in progress...</em></p>
   </article>
 
-  {# 2. Block #}
+  {# 2. What is Hopaas? #}
   <article>
-    <header><h3>2. Block</h3></header>
-    <p><em>work in progress...</em></p>
+    <header><h3>2. What is Hopaas?</h3></header>
+    <p>
+      <strong>Hopaas</strong> (<em>Hyperparameter OPtimization As A Service</em>) is a service
+      hosted by <a href="https://www.cloud.infn.it">INFN Cloud</a> that allows to orchestrate 
+      optimization studies across multiple computing instances via <strong>HTTP 
+      requests</strong>. Hopaas provides a set of REST APIs and a web interface to enable
+      <strong>user authentication</strong> and to monitor the status of the user studies.
+    </p>
+    <ul>
+      <li><strong>Back-end</strong> based on <a href="https://fastapi.tiangolo.com">FastAPI</a>;</li>
+      <li>Underlying databases powered by <a href="https://www.postgresql.org">PostgreSQL</a>;</li>
+      <li><strong>Bayesian optimization</strong> powered by <a href="https://optuna.org">Optuna</a>;</li>
+      <li>Service provided by <a href="https://www.uvicorn.org">Uvicorn</a> and <a href="https://www.nginx.com">NGINX</a>;</li>
+      <li>Python <strong>front-end</strong> available through <a href="https://github.com/landerlini/hopaas_client">hopaas_client</a>.</li>
+    </ul>
   </article>
 
   {# 3. Authorization via token #}
@@ -85,15 +98,14 @@
 
   {# 4. Client-server optimization system #}
   <article>
-    <header><h4>3. Client-server optimization system</h3></header>
+    <header><h3>3. Client-server optimization system</h3></header>
     <figure>
       <img style="width: 100%" src="img/hopaas_sketch_1.png" alt="Hopaas client-server system">
       <figcaption>
         <small>
-          Workflow of the client-server system defined by Hopaas to run optimization 
-          studies, and based on an <strong><em>ask-and-tell</em></strong> interface where 
-          the trial parameters and the objective function computed are exchanged through 
-          <strong>HTTP requests</strong>.
+          Workflow of the client-server system defined by Hopaas to run optimization studies, 
+          and based on an <em>ask-and-tell</em> interface where the trial parameters and the 
+          objective score computed are retrieved from HTTP requests.
         </small>
       </figcaption>
     </figure>
@@ -106,9 +118,9 @@
       <img style="width: 100%" src="img/hopaas_sketch_2.png" alt="Hopaas multi-nodes communication">
       <figcaption>
         <small>
-          Schematic representation of the Hopaas server as an <strong>orchestrator</strong> 
-          of two optimization  studies ("Study A" and "Study B") distributed across five 
-          computing instances, and powered by a <strong>PostgreSQL database</strong>.
+          Schematic representation of the Hopaas server as an orchestrator of two optimization
+          studies ("Study A" and "Study B") distributed across five computing instances, and 
+          powered by a PostgreSQL database.
         </small>
       </figcaption>
     </figure>
@@ -137,9 +149,11 @@
     <header><h3>References</h3></header>
     <small>
       <ol>
-        <li>D. Spiga <em>et al.</em>, <em>Dynamic integration of distributed, Cloud-based HPC and HTC resources using JSON Web Tokens and the INDIGO IAM Service</em>, <a href="https://doi.org/10.1051/epjconf/202024507020">EPJ Web Conf <strong>245</strong> (2020) 07020</a></li>
+        <li>R. Liaw <em>et al.</em>, <em>Tune: A Research Platform for Distributed Model Selection and Training</em>, <a href="https://arxiv.org/abs/1807.05118">arXiv:1807.05118</a></li>
         <li>T. Akiba <em>et al.</em>, <em>Optuna: A Next-generation Hyperparameter Optimization Framework</em>, <a href="https://arxiv.org/abs/1907.10902">arXiv:1907.10902</a></li>
+        <li>D. Spiga <em>et al.</em>, <em>Dynamic integration of distributed, Cloud-based HPC and HTC resources using JSON Web Tokens and the INDIGO IAM Service</em>, <a href="https://doi.org/10.1051/epjconf/202024507020">EPJ Web Conf <strong>245</strong> (2020) 07020</a></li>
         <li>M. Mariotti, D. Spiga and T. Boccali, <em>A possible solution for HEP processing on network secluded Computing Nodes</em>, <a href="https://doi.org/10.22323/1.378.0002">PoS <strong>ISGC2021</strong> (2021) 002</a></li>
+        <li>E. Wulff, M. Girone and J. Pata, <em>Hyperparameter optimization of data-driven AI models on HPC systems</em>, <a href="https://arxiv.org/abs/2203.01112">arXiv:2203.01112</a></li>
       </ol>
     </small>
   </article>
