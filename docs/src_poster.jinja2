@@ -69,13 +69,16 @@
   <article>
     <header><h3>1. Motivation</h3></header>
     <p>
-      Hyperparameter optimization is a crucial step in the late development of machine learning 
-      models to improve their performance. Optimization campaigns require training the models 
-      multiple times, possibly <strong>in parallel</strong>, to explore the hyperparameter space, 
-      focusing on those regions where the model performs better. Accessing <em>opportunistic 
-      resources</em> can drastically increase the number of trials in a campaign, especially 
-      when training involves the usage of GPUs. Diversity in the computing environment of the 
-      resource providers and untrusted storage solutions represent challenges to the existing services.
+      <strong>Hyperparameter optimization</strong> is a crucial step in the late development 
+      of machine learning models to improve their performance. Optimization campaigns require 
+      training the models multiple times, possibly <strong>in parallel</strong>, to explore the 
+      hyperparameter space, focusing on those regions where the model performs better.
+    </p>
+    <p>  
+      Accessing <em>opportunistic resources</em> can drastically increase the number of trials 
+      in a campaign, especially when training involves the usage of GPUs. <strong>Diversity</strong> 
+      in the computing environment of the resource providers and <strong>untrusted</strong> 
+      storage solutions represent challenges to the existing services.
     </p>
   </article>
 
@@ -103,7 +106,7 @@
     <header><h3>3. Authorization via token</h3></header>
     <p>
       Accessing the Hopaas service is enabled through <strong>API tokens</strong> passed directly 
-      within the URL of HTTP requests. Such tokens can be generated with user-selected validity 
+      within the URL of the HTTP requests. Such tokens can be generated with user-selected validity 
       interval (ranging from one day to one year), through a dedicated webpage at 
       <a href="{{ project_url }}">hopaas.cloud.infn.it</a> after an <strong>OAuth2 login</strong> 
       via the INFN official GitLab instance (<a href="https://baltig.infn.it">baltig.infn.it</a>).
@@ -129,9 +132,10 @@
   <article>
     <header><h3>5. Multi-nodes optimization campaigns</h3></header>
     <p>
-      Multiple data centers can concur to the same optimization study, requesting to the Hopaas client 
-      a new set of hyperparameters to be tested and then communicating the outcome of the training.
-      Several trials of one or more studies can be tracked and monitored by the hopaas instance. 
+      Multiple <strong>HPC centers</strong> can concur to the same optimization study, requesting 
+      to the Hopaas server a new set of hyperparameters to be tested and then communicating the 
+      outcome of the training instance. Several trials of <strong>one or more studies</strong> 
+      can be tracked and monitored through the web interface provided by the Hopaas service. 
     </p>
     <hr/>
     <figure>
@@ -149,33 +153,29 @@
   {# 6. Example use-cases #}
   <article>
     <header><h3>6. Example use-cases</h3></header>
-    <p>
-      Full runnable example at <a href="https://l.infn.it/hopaascolab">l.infn.it/hopaascolab</a>
-    </p>
-    <hr/>
     <span class="xs">
       <pre>
         <code class="python">import hopaas_client as hpc
 
 ## Create the client
-apikey = "user-api-token"
-client = hpc.Client("https://hopaas.cloud.infn.it", apikey=apikey)
+client = hpc.Client(server="https://hopaas.cloud.infn.it",
+                    token="user-api-token")
 
 ## Create (or retrieve) the study
 study = hpc.Study(name="ExampleStudy",
                   properties=dict(
-                    f = hpc.suggestions.Float(0,10),
-                    phi = hpc.suggestions.Float(-10,10)
+                    int_param = hpc.suggestions.Int(0, 10),
+                    float_param = hpc.suggestions.Float(-1, 1)
                   ),
-                  direction="minimize",
+                  direction="minimize",   # or "maximize"
                   client=client)
 
 ## Start polling trials
 while True:
   with study.trial() as trial:
     ## Retrieve hopaas-suggested parameters
-    f = trial.f
-    phi = trial.phi
+    int_param = trial.int_param
+    float_param = trial.float_param
 
     ## Define the training loop (if any)
 
@@ -183,18 +183,23 @@ while True:
       my_loss = # compute the loss at this epoch/step
       trial.loss = my_loss
 
-      ## Discards poorly-started trials to save computing time
+      ## Discards poorly-started trials 
+      ## to save computing time
       if trial.should_prune: 
         break</code>
       </pre>
     </span class="xs">
+    <hr/>
+    <p>
+      Fully runnable example at <a href="https://l.infn.it/hopaascolab">l.infn.it/hopaascolab</a>.
+    </p>
   </article>
 
   {# 7. Web-powered monitoring #}
   <article>
     <header><h3>7. Web-powered monitoring</h3></header>
     <p>
-      A simple web interface based on <a href="https://gionkunz.github.io/chartist-js">Chartist</a> 
+      A simple <strong>web interface</strong> based on <a href="https://gionkunz.github.io/chartist-js">Chartist</a> 
       enables live monitoring of the ongoing optimization trials, while organizing the history of 
       the past studies.
     </p>
@@ -203,7 +208,10 @@ while True:
       <img style="width: 100%" src="img/hopaas-web-dashboard.png" alt="Hopaas web dashboard">
       <figcaption>
         <small>
-          <em>work in progress...</em>
+          Web dashboard produced by Hopaas for <a href="https://l.infn.it/hopaascolab">l.infn.it/hopaascolab</a>.
+          The top right plot shows three ongoing trial trainings, while the center plot reports 
+          the global status of the optimization study. Finally, the bottom table traces general 
+          information from all the trials.
         </small>
       </figcaption>
     </figure>
@@ -212,7 +220,18 @@ while True:
   {# 8. Conclusions #}
   <article>
     <header><h3>8. Conclusions</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      Several optimization campaigns has been successfully distributed and coordinated by the 
+      Hopaas server using <strong>diverse computing instances</strong>, from scientific HPC 
+      resources (like <a href="https://www.cloud.infn.it">INFN Cloud</a> and 
+      <a href="https://www.hpc.cineca.it/hardware/marconi100">CINECA MARCONI100</a>), 
+      and from public Cloud Provider (like GCP or AWS).
+    </p>
+    <p>
+      Hopaas is currently in <strong>alpha testing</strong> and is made available to a limited
+      amomunt of INFN researchers. The source code will be <em>open-sourced</em> once a more 
+      advanced state of development will be reached.
+    </p>
   </article>
 
   {# References #}
