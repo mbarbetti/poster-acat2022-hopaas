@@ -36,7 +36,7 @@
 
 {# Project logos shown on the left side #}
 {% block project_logos %}
-  <a href="{{ project_url }}"><img src="img/hopaas_logo_black.png" alt="Hopaas logo"></a>
+  <a href="{{ project_url }}"><img src="img/hopaas-logo.png" alt="Hopaas logo"></a>
   <a href="https://www.cloud.infn.it"><img src="img/infn-cloud-logo.png" alt="INFN Cloud logo"></a>
 {% endblock %}
 
@@ -68,12 +68,20 @@
   {# 1. Motivation #}
   <article>
     <header><h3>1. Motivation</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      Hyperparameter optimization is a crucial step in the late development of machine learning 
+      models to improve their performance. Optimization campaigns require training the models 
+      multiple times, possibly <strong>in parallel</strong>, to explore the hyperparameter space, 
+      focusing on those regions where the model performs better. Accessing <em>opportunistic 
+      resources</em> can drastically increase the number of trials in a campaign, especially 
+      when training involves the usage of GPUs. Diversity in the computing environment of the 
+      resource providers and untrusted storage solutions represent challenges to the existing services.
+    </p>
   </article>
 
-  {# 2. What is Hopaas? #}
+  {# 2. Hyperparameter optimization as a service #}
   <article>
-    <header><h3>2. What is Hopaas?</h3></header>
+    <header><h3>2. Hyperparameter optimization as a service </h3></header>
     <p>
       <strong>Hopaas</strong> (<em>Hyperparameter OPtimization As A Service</em>) is a service
       hosted by <a href="https://www.cloud.infn.it">INFN Cloud</a> that allows to orchestrate 
@@ -86,21 +94,27 @@
       <li>Underlying databases powered by <a href="https://www.postgresql.org">PostgreSQL</a>;</li>
       <li><strong>Bayesian optimization</strong> powered by <a href="https://optuna.org">Optuna</a>;</li>
       <li>Service provided by <a href="https://www.uvicorn.org">Uvicorn</a> and <a href="https://www.nginx.com">NGINX</a>;</li>
-      <li>Python <strong>front-end</strong> available through <a href="https://github.com/landerlini/hopaas_client">hopaas_client</a>.</li>
+      <li>Python <strong>front-end</strong> available (<a href="https://github.com/landerlini/hopaas_client">hopaas_client</a>).</li>
     </ul>
   </article>
 
   {# 3. Authorization via token #}
   <article>
     <header><h3>3. Authorization via token</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      Accessing the Hopaas service is enabled through <strong>API tokens</strong> passed directly 
+      within the URL of HTTP requests. Such tokens can be generated with user-selected validity 
+      interval (ranging from one day to one year), through a dedicated webpage at 
+      <a href="{{ project_url }}">hopaas.cloud.infn.it</a> after an <strong>OAuth2 login</strong> 
+      via the INFN official GitLab instance (<a href="https://baltig.infn.it">baltig.infn.it</a>).
+    </p>
   </article>
 
   {# 4. Client-server optimization system #}
   <article>
     <header><h3>3. Client-server optimization system</h3></header>
     <figure>
-      <img style="width: 100%" src="img/hopaas_sketch_1.png" alt="Hopaas client-server system">
+      <img style="width: 100%" src="img/hopaas-client-server.png" alt="Hopaas client-server system">
       <figcaption>
         <small>
           Workflow of the client-server system defined by Hopaas to run optimization studies, 
@@ -114,8 +128,14 @@
   {# 5. Multi-nodes optimization campaigns #}
   <article>
     <header><h3>5. Multi-nodes optimization campaigns</h3></header>
+    <p>
+      Multiple data centers can concur to the same optimization study, requesting to the Hopaas client 
+      a new set of hyperparameters to be tested and then communicating the outcome of the training.
+      Several trials of one or more studies can be tracked and monitored by the hopaas instance. 
+    </p>
+    <hr/>
     <figure>
-      <img style="width: 100%" src="img/hopaas_sketch_2.png" alt="Hopaas multi-nodes communication">
+      <img style="width: 100%" src="img/hopaas-multi-nodes.png" alt="Hopaas multi-nodes communication">
       <figcaption>
         <small>
           Schematic representation of the Hopaas server as an orchestrator of two optimization
@@ -126,16 +146,67 @@
     </figure>
   </article>
 
-  {# 6. Vanilla use-case #}
+  {# 6. Example use-cases #}
   <article>
-    <header><h3>6. Vanilla use-case</h3></header>
-    <p><em>work in progress...</em></p>
+    <header><h3>6. Example use-cases</h3></header>
+    <p>
+      Full runnable example at <a href="https://l.infn.it/hopaascolab">l.infn.it/hopaascolab</a>
+    </p>
+    <hr/>
+    <span class="xs">
+      <pre>
+        <code class="python">import hopaas_client as hpc
+
+## Create the client
+apikey = "user-api-token"
+client = hpc.Client("https://hopaas.cloud.infn.it", apikey=apikey)
+
+## Create (or retrieve) the study
+study = hpc.Study(name="ExampleStudy",
+                  properties=dict(
+                    f = hpc.suggestions.Float(0,10),
+                    phi = hpc.suggestions.Float(-10,10)
+                  ),
+                  direction="minimize",
+                  client=client)
+
+## Start polling trials
+while True:
+  with study.trial() as trial:
+    ## Retrieve hopaas-suggested parameters
+    f = trial.f
+    phi = trial.phi
+
+    ## Define the training loop (if any)
+
+    for iStep in range(50):
+      my_loss = # compute the loss at this epoch/step
+      trial.loss = my_loss
+
+      ## Discards poorly-started trials to save computing time
+      if trial.should_prune: 
+        break</code>
+      </pre>
+    </span class="xs">
   </article>
 
   {# 7. Web-powered monitoring #}
   <article>
     <header><h3>7. Web-powered monitoring</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      A simple web interface based on <a href="https://gionkunz.github.io/chartist-js">Chartist</a> 
+      enables live monitoring of the ongoing optimization trials, while organizing the history of 
+      the past studies.
+    </p>
+    <hr/>
+    <figure>
+      <img style="width: 100%" src="img/hopaas-web-dashboard.png" alt="Hopaas web dashboard">
+      <figcaption>
+        <small>
+          <em>work in progress...</em>
+        </small>
+      </figcaption>
+    </figure>
   </article>
 
   {# 8. Conclusions #}
