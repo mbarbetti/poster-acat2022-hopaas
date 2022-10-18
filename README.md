@@ -1,9 +1,10 @@
 [![](https://img.shields.io/badge/indico-event-c89e6c?style=flat&logoColor=white)](https://indico.cern.ch/event/1106990/)
 [![](https://img.shields.io/badge/indico-contribution-087cfc?style=flat&logoColor=white)](https://indico.cern.ch/event/1106990/contributions/4991351/)
 [![](https://img.shields.io/badge/HTML-poster-E34F26?style=flat&logo=HTML5&logoColor=white)](https://mbarbetti.github.io/poster-acat2022-hopaas/poster.html)
-<!--
-[![](https://img.shields.io/badge/arXiv-2204.09947-B31B1B?style=flat&logoColor=white)](https://arxiv.org/abs/2204.09947)
+[![](https://img.shields.io/badge/PDF-poster-EC1C24?style=flat&logo=Adobe%20Acrobat%20Reader&logoColor=white)](https://github.com/mbarbetti/poster-acat2022-hopaas/blob/main/docs/poster.pdf)
+<!-->
 [![](https://img.shields.io/badge/PoS-(CompTools2021)034-78a434?style=flat&logoColor=white)](https://pos.sissa.it/409/034)
+[![](https://img.shields.io/badge/arXiv-2204.09947-B31B1B?style=flat&logoColor=white)](https://arxiv.org/abs/2204.09947)
 -->
 
 
