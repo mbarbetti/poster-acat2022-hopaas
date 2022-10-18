@@ -36,7 +36,7 @@
 
 {# Project logos shown on the left side #}
 {% block project_logos %}
-  <a href="{{ project_url }}"><img src="img/hopaas-logo.png" alt="Hopaas logo"></a>
+  <a href="{{ project_url }}"><img src="img/hopaas-logo-black.png" alt="Hopaas logo"></a>
   <a href="https://www.cloud.infn.it"><img src="img/infn-cloud-logo.png" alt="INFN Cloud logo"></a>
 {% endblock %}
 
@@ -247,4 +247,9 @@ while True:
       </ol>
     </small>
   </article>
+
+  {# Logo figure #}
+  <figure style="flex-grow: 9999999">
+    <img style="width: 100%; margin: 5% 0" src="img/hopaas-varlogo-white.png" alt="Hopaas var-logo">
+  </figure>
 {% endblock %}
