@@ -28,13 +28,13 @@ We present applications to hyperparameter optimization campaigns performed combi
 ## Cite us
 Are you using Hopaas in your research project? Please cite us!
 
-M. Barbetti and L. Anderlini, **Hyperparameter Optimization as a Service on INFN Cloud**, in _21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research (ACAT 2022)_, [arXiv:2301.05522](https://arxiv.org/abs/2301.05522)
+> M. Barbetti and L. Anderlini, **Hyperparameter Optimization as a Service on INFN Cloud**, in _21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research (ACAT 2022)_, [arXiv:2301.05522](https://arxiv.org/abs/2301.05522)
 
 ```bibtex
 @inproceedings{hopaas:2023,
     author = "Barbetti, Matteo and Anderlini, Lucio",
     title = "{Hyperparameter Optimization as a Service on INFN Cloud}",
-    booktitle = "{21th International Workshop on Advanced Computing and Analysis Techniques in Physics Research}: {AI meets Reality}",
+    booktitle = "{21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research (ACAT 2022)",
     eprint = "2301.05522",
     archivePrefix = "arXiv",
     primaryClass = "cs.DC",
