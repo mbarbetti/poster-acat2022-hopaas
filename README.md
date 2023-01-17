@@ -34,7 +34,8 @@ Are you using Hopaas in your research project? Please cite us!
 @inproceedings{hopaas:2023,
     author = "Barbetti, Matteo and Anderlini, Lucio",
     title = "{Hyperparameter Optimization as a Service on INFN Cloud}",
-    booktitle = "{21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research (ACAT 2022)",
+    booktitle = "{21st International Workshop on Advanced Computing and 
+                Analysis Techniques in Physics Research (ACAT 2022)",
     eprint = "2301.05522",
     archivePrefix = "arXiv",
     primaryClass = "cs.DC",
