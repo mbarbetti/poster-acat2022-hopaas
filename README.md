@@ -11,6 +11,12 @@ in [*21st International Workshop on Advanced Computing and Analysis Techniques i
 [![](https://img.shields.io/badge/PoS-(CompTools2021)034-78a434?style=flat&logoColor=white)](https://pos.sissa.it/409/034)
 -->
 
+## Abstract
+The simplest and often most effective way of parallelizing the training of complex machine learning models is to execute several training  instances on multiple machines, possibly scanning the hyperparameter space to optimize the underlying statistical model and the learning procedure. 
+Often, such a meta learning procedure is limited by the ability of accessing  securely a common database organizing the knowledge of the previous and ongoing trials. Exploiting opportunistic GPUs provided in different environments represents a further challenge when designing such optimization campaigns. 
+In this contribution we discuss how a set of RestAPIs can be used to access a dedicated service based on INFN Cloud to monitor and possibly coordinate multiple training instances, with gradientless optimization techniques, via simple HTTP requests. The service, named Hopaas (_Hyperparameter OPtimization As A Service_), is made of web interface and sets of APIs implemented with a FastAPI back-end  running through Uvicorn and NGINX in a virtual instance of INFN Cloud. The optimization algorithms are currently based on Bayesian techniques as provided by Optuna. A Python front-end is also made available for quick prototyping. 
+We present applications to hyperparameter optimization campaigns performed combining private, INFN Cloud and CINECA resources.
+
 > **Authors:**
 >
 > M. Barbetti [1,2], L. Anderlini [2]
@@ -18,13 +24,6 @@ in [*21st International Workshop on Advanced Computing and Analysis Techniques i
 > **Affiliations:**
 > 1. Department of Information Engineering, University of Florence, via Santa Marta, 3, Firenze, Italy
 > 2. Istituto Nazionale di Fisica Nucleare, Sezione di Firenze, via G. Sansonse 1, Sesto Fiorentino (FI), Italy
-
-
-## Abstract
-The simplest and often most effective way of parallelizing the training of complex machine learning models is to execute several training  instances on multiple machines, possibly scanning the hyperparameter space to optimize the underlying statistical model and the learning procedure. 
-Often, such a meta learning procedure is limited by the ability of accessing  securely a common database organizing the knowledge of the previous and ongoing trials. Exploiting opportunistic GPUs provided in different environments represents a further challenge when designing such optimization campaigns. 
-In this contribution we discuss how a set of RestAPIs can be used to access a dedicated service based on INFN Cloud to monitor and possibly coordinate multiple training instances, with gradientless optimization techniques, via simple HTTP requests. The service, named Hopaas (_Hyperparameter OPtimization As A Service_), is made of web interface and sets of APIs implemented with a FastAPI back-end  running through Uvicorn and NGINX in a virtual instance of INFN Cloud. The optimization algorithms are currently based on Bayesian techniques as provided by Optuna. A Python front-end is also made available for quick prototyping. 
-We present applications to hyperparameter optimization campaigns performed combining private, INFN Cloud and CINECA resources.
 
 ## Credits
 Poster project based on [cpitclaudel/academic-poster-template](https://github.com/cpitclaudel/academic-poster-template). Poster webpage hosted by [GitHub page](https://pages.github.com).
