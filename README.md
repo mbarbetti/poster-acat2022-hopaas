@@ -25,5 +25,23 @@ We present applications to hyperparameter optimization campaigns performed combi
 > 1. Department of Information Engineering, University of Florence, via Santa Marta, 3, Firenze, Italy
 > 2. Istituto Nazionale di Fisica Nucleare, Sezione di Firenze, via G. Sansonse 1, Sesto Fiorentino (FI), Italy
 
+## Cite us
+Are you using Hopaas in your research project? Please cite us!
+
+M. Barbetti and L. Anderlini, **Hyperparameter Optimization as a Service on INFN Cloud**, in _21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research (ACAT 2022)_, [arXiv:2301.05522](https://arxiv.org/abs/2301.05522)
+
+```bibtex
+@inproceedings{hopaas:2023,
+    author = "Barbetti, Matteo and Anderlini, Lucio",
+    title = "{Hyperparameter Optimization as a Service on INFN Cloud}",
+    booktitle = "{21th International Workshop on Advanced Computing and Analysis Techniques in Physics Research}: {AI meets Reality}",
+    eprint = "2301.05522",
+    archivePrefix = "arXiv",
+    primaryClass = "cs.DC",
+    month = "1",
+    year = "2023"
+}
+```
+
 ## Credits
 Poster project based on [cpitclaudel/academic-poster-template](https://github.com/cpitclaudel/academic-poster-template). Poster webpage hosted by [GitHub page](https://pages.github.com).
